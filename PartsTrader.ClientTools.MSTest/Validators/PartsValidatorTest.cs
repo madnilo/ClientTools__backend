@@ -21,14 +21,5 @@ namespace PartsTrader.ClientTools.MSTest
             Assert.AreEqual(false, result2);
         }
 
-        [TestMethod]
-        public void isPartTitleValidTest()
-        {
-            var title = "Mazda RX-7 Front Wheel";
-
-            var result = _validator.IsPartTitleValid(title);
-
-            Assert.AreEqual(true, result);
-        }
     }
 }

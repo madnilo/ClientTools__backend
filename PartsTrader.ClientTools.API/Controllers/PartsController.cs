@@ -4,6 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using PartsTrader.ClientTools.Api;
+using PartsTrader.ClientTools.API.Service;
+using PartsTrader.ClientTools.API.Validators;
 
 namespace PartsTrader.ClientTools.API.Controllers
 {
@@ -11,34 +14,43 @@ namespace PartsTrader.ClientTools.API.Controllers
     [ApiController]
     public class PartsController : ControllerBase
     {
+        private readonly ILogger<PartsController> _logger;
+        private readonly IPartsValidator _validator;
+        private readonly IPartsService _service;
 
-        private ILogger<PartsController> _logger;
-
-        public PartsController(ILogger<PartsController> logger)
+        public PartsController(ILogger<PartsController> logger,
+        IPartsValidator validator,
+        IPartsService service)
         {
             _logger = logger;
+            _validator = validator;
+            _service = service;
         }
 
+
         /// <summary>
-        /// Get this instance.
+        /// Get equivalent parts by a given PartNo.
         /// </summary>
-        /// <returns>The get.</returns>
-        // GET api/values
-        [HttpGet]
-        public ActionResult<IEnumerable<string>> GetByPartNumber()
+        /// <returns>PartSearchResultsDTO</returns>
+        // GET api/parts/:partNo
+        [HttpGet("partNo")]
+        public ActionResult<IEnumerable<string>> GetByPartNo(string partNo)
         {
-            //TODO call validator on the part searched
+            try
+            {
+                if (!_validator.IsPartNumberValid(partNo))
+                {
+                    throw new InvalidPartException(partNo);
+                }
+            }
+            catch (InvalidPartException ex)
+            {
+                _logger.LogError(ex.Message);
+                return BadRequest(Messages.PARTS__INVALID_NUMBER);
+            }
 
-            //TODO if validation is not ok throw invalid part exception
+            var results = _service.GetPartsByPartNo(partNo);
 
-            //TODO in the pipeline, filter the exception to return 400 bad request?
-            //TODO or treat the exception with try catch to return 400 bad request?
-
-            //TODO if everything is okay, call the service layer
-
-            //TODO the service layer should lookup on the exclusions list and return [] if the part is excluded
-
-            //TODO if the part is not excluded, pass to repository layer
 
             //TODO repository should call the external service
 
@@ -50,41 +62,20 @@ namespace PartsTrader.ClientTools.API.Controllers
 
             //TODO controller returns OK(data)
 
-            Console.WriteLine("passed here");
+            Console.WriteLine(partNo);
             _logger.LogInformation($"New request for parts at {DateTime.Now}");
             return new string[] { "value1", "value2" };
         }
 
         /// <summary>
-        /// Get this instance.
+        /// Get a part with full details by partNo.
         /// </summary>
-        /// <returns>The get.</returns>
-        // GET api/values
-        [HttpGet]
-        public ActionResult<IEnumerable<string>> GetByTitle()
+        /// <returns>PartWithEquivalentsDTO</returns>
+        // GET api/parts/:ID
+        [HttpGet("{partNo}/details")]
+        public ActionResult<IEnumerable<string>> GetPartDetails(int partNo)
         {
-            //TODO call validator on the title searched
-
-            //TODO if validation is not ok throw invalid part exception
-
-            //TODO in the pipeline, filter the exception to return 400 bad request?
-            //TODO or treat the exception with try catch to return 400 bad request?
-
-            //TODO if everything is okay, call the service layer
-
-            //TODO repository should call the external service
-
-            //TODO return data to service
-
-            //TODO service call the adapter to translate entity to DTO
-
-            //TODO service return data to the controller
-
-            //TODO controller returns OK(data)
-
-            Console.WriteLine("passed here");
-            _logger.LogInformation($"New request for parts at {DateTime.Now}");
-            return new string[] { "value1", "value2" };
+            throw new NotImplementedException();
         }
 
     }

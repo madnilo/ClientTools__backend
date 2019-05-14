@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using PartsTrader.ClientTools.API.Repository;
 using PartsTrader.ClientTools.API.Validators;
 
 namespace PartsTrader.ClientTools.API
@@ -22,6 +23,8 @@ namespace PartsTrader.ClientTools.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<IPartsValidator, PartsValidator>();
+            services.AddTransient<IPartsRepository, PartsRepository>();
+
             services.AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
