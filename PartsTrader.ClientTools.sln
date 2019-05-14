@@ -1,0 +1,29 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PartsTrader.ClientTools.API", "PartsTrader.ClientTools.API\PartsTrader.ClientTools.API.csproj", "{4725FEFB-BFD7-427F-9159-D0CC49D8DC6F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PartsTrader.ClientTools.MSTest", "PartsTrader.ClientTools.MSTest\PartsTrader.ClientTools.MSTest.csproj", "{AA625373-999A-427F-9CC0-A0F289EDDB33}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PartsTrader.ClientTools.External", "PartsTrader.ClientTools.External\PartsTrader.ClientTools.External.csproj", "{7BF55DB0-BCA5-49A1-A9DD-6E9D2FED5D50}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4725FEFB-BFD7-427F-9159-D0CC49D8DC6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4725FEFB-BFD7-427F-9159-D0CC49D8DC6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4725FEFB-BFD7-427F-9159-D0CC49D8DC6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4725FEFB-BFD7-427F-9159-D0CC49D8DC6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA625373-999A-427F-9CC0-A0F289EDDB33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA625373-999A-427F-9CC0-A0F289EDDB33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA625373-999A-427F-9CC0-A0F289EDDB33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA625373-999A-427F-9CC0-A0F289EDDB33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BF55DB0-BCA5-49A1-A9DD-6E9D2FED5D50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BF55DB0-BCA5-49A1-A9DD-6E9D2FED5D50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BF55DB0-BCA5-49A1-A9DD-6E9D2FED5D50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BF55DB0-BCA5-49A1-A9DD-6E9D2FED5D50}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
