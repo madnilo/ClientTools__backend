@@ -30,7 +30,7 @@ NLog third party dependency was used to handle logging to files.
 
 #### Validations
 
-DataAnnotations were not necessary for the sake of this app. Custom validators were implemented to facilitate unit testing.
+`DataAnnotations` were not used in this app. Instead, custom validators were implemented to facilitate unit testing and preserve the nature of POCOs as model classes. `Fluent Validation` was considered, but for the sake of the project it would be overkill.
 
 #### Service layer
 
@@ -44,3 +44,6 @@ The repositories call the external parts trader service. This call was replaced 
 
 The app was developed using TDD, despite the tests projects is having some issues when passing mocked dependencies to the components. Still investigating the issue. 
 
+#### Documentation
+
+`Swagger` (OpenAPi) was used to document the API for other developers. 
