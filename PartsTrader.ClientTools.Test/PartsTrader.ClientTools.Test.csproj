@@ -14,12 +14,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PartsTrader.ClientTools.API\PartsTrader.ClientTools.API.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Validators\" />
     <Folder Include="Controllers\" />
     <Folder Include="Repository\" />
     <Folder Include="Service\" />
+    <Folder Include="Validators\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PartsTrader.ClientTools.API\PartsTrader.ClientTools.API.csproj" />
   </ItemGroup>
 </Project>

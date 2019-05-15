@@ -3,9 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PartsTrader.ClientTools.API", "PartsTrader.ClientTools.API\PartsTrader.ClientTools.API.csproj", "{4725FEFB-BFD7-427F-9159-D0CC49D8DC6F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PartsTrader.ClientTools.MSTest", "PartsTrader.ClientTools.MSTest\PartsTrader.ClientTools.MSTest.csproj", "{AA625373-999A-427F-9CC0-A0F289EDDB33}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{62A5FB53-F353-4110-9A50-694E48F7062D}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PartsTrader.ClientTools.External", "PartsTrader.ClientTools.External\PartsTrader.ClientTools.External.csproj", "{7BF55DB0-BCA5-49A1-A9DD-6E9D2FED5D50}"
+Project("{9344BDBB-3E7F-41FC-A0DD-8665D75EE146}") = "PartsTrader.ClientTools.External", "PartsTrader.ClientTools.External\PartsTrader.ClientTools.External.csproj", "{D21A974D-0047-4E2B-9F03-854F787461F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PartsTrader.ClientTools.Test", "PartsTrader.ClientTools.Test\PartsTrader.ClientTools.Test.csproj", "{E96E2F9F-01B0-49B6-9AB0-76EE6334E35F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,13 +22,13 @@ Global
 		{4725FEFB-BFD7-427F-9159-D0CC49D8DC6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4725FEFB-BFD7-427F-9159-D0CC49D8DC6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4725FEFB-BFD7-427F-9159-D0CC49D8DC6F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AA625373-999A-427F-9CC0-A0F289EDDB33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AA625373-999A-427F-9CC0-A0F289EDDB33}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AA625373-999A-427F-9CC0-A0F289EDDB33}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AA625373-999A-427F-9CC0-A0F289EDDB33}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7BF55DB0-BCA5-49A1-A9DD-6E9D2FED5D50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7BF55DB0-BCA5-49A1-A9DD-6E9D2FED5D50}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7BF55DB0-BCA5-49A1-A9DD-6E9D2FED5D50}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7BF55DB0-BCA5-49A1-A9DD-6E9D2FED5D50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D21A974D-0047-4E2B-9F03-854F787461F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D21A974D-0047-4E2B-9F03-854F787461F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D21A974D-0047-4E2B-9F03-854F787461F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D21A974D-0047-4E2B-9F03-854F787461F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E96E2F9F-01B0-49B6-9AB0-76EE6334E35F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E96E2F9F-01B0-49B6-9AB0-76EE6334E35F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E96E2F9F-01B0-49B6-9AB0-76EE6334E35F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E96E2F9F-01B0-49B6-9AB0-76EE6334E35F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

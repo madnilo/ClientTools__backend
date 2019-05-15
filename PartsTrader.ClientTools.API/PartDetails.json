@@ -1,0 +1,43 @@
+{
+    "title": "Mazda RX-8 Front Bumber",
+    "thumbnail": "https://loremflickr.com/140/100/toyota",
+    "image": "https://loremflickr.com/400/400/toyota",
+    "price": "$70",
+    "partNo": "2343-WEO3",
+    "manufacter": "Mazda",
+    "condition": "New",
+    "genuine": "false",
+    "description": "Dolor in cillum amet pariatur incididunt. Ut aute ea cillum sunt cillum nostrud incididunt tempor do qui. Elit culpa ad aliqua cupidatat nulla.",
+    "equivalents": [
+        {
+            "title": "Mazda RX-8 Front Lights",
+            "thumbnail": "https://loremflickr.com/140/100/toyota",
+            "image": "https://loremflickr.com/400/400/toyota",
+            "price": "$70",
+            "partNo": "2343-WEkO3",
+            "manufacter": "Mazda",
+            "condition": "New",
+            "genuine": false
+        },
+        {
+            "title": "Toyota 86 Rear Bumber",
+            "thumbnail": "https://loremflickr.com/140/100/toyota",
+            "image": "https://loremflickr.com/400/400/toyota",
+            "price": "$70",
+            "partNo": "2343-WEuO3",
+            "manufacter": "Mazda",
+            "condition": "New",
+            "genuine": false
+        },
+        {
+            "title": "Holden Commodore Front Wheel",
+            "thumbnail": "https://loremflickr.com/140/100/toyota",
+            "image": "https://loremflickr.com/400/400/toyota",
+            "price": "$70",
+            "partNo": "2343-WEaO3",
+            "manufacter": "Mazda",
+            "condition": "New",
+            "genuine": false
+        }
+    ]
+}

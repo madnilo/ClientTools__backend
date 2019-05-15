@@ -11,8 +11,9 @@
     <Folder Include="Repository\" />
     <Folder Include="Model\" />
     <Folder Include="Validators\" />
-    <Folder Include="Entities\" />
-    <Folder Include="Adapters\" />
+    <Folder Include="Model\Domain\" />
+    <Folder Include="Model\DTO\" />
+    <Folder Include="Model\Contants\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -20,6 +21,8 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0-rc2" />
     <PackageReference Include="NLog.Web.AspNetCore" Version="4.8.2" />
     <PackageReference Include="NLog" Version="4.6.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="AutoMapper" Version="8.1.0" />
   </ItemGroup>
 
 </Project>

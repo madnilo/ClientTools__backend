@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
-
-
+using PartsTrader.ClientTools.API.Domain;
 
 namespace PartsTrader.ClientTools.Integration
 {
@@ -18,6 +17,7 @@ namespace PartsTrader.ClientTools.Integration
         /// <returns>
         /// All compatible parts found.
         /// </returns>
-        //IEnumerable<PartSummary> FindAllCompatibleParts(string partNumber);
+        PartDetails FindPartByPartNumber(string partNumber);
+        IEnumerable<PartSummary> FindAllCompatiblePartsByPartNumber(string partNumber);
     }
 }

@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using PartsTrader.ClientTools.API.Entities;
+using System.Threading.Tasks;
+using PartsTrader.ClientTools.API.Domain;
 
 namespace PartsTrader.ClientTools.API.Repository
 {
     public interface IPartsRepository
     {
-        List<PartSummary> GetExcludedParts();
-        List<PartSummary> GetEquivalentPartsByPartNo();
-        PartDetails GetPartDetailsByPartNo();
+        Task<List<PartSummary>> GetExcludedParts();
+        Task<List<PartSummary>> GetCompatiblePartsByPartNo(string partNo);
+        Task<PartDetails> GetPartDetailsByPartNo(string partNo);
     }
 }

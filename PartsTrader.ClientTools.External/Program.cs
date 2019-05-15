@@ -7,6 +7,7 @@ using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using PartsTrader.ClientTools.External.Services;
 
 namespace PartsTrader.ClientTools.External
 {
@@ -20,5 +21,6 @@ namespace PartsTrader.ClientTools.External
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>();
+
     }
 }

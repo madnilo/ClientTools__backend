@@ -5,7 +5,10 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using PartsTrader.ClientTools.API.Domain;
+using PartsTrader.ClientTools.API.Model.DTO;
 using PartsTrader.ClientTools.API.Repository;
+using PartsTrader.ClientTools.API.Service;
 using PartsTrader.ClientTools.API.Validators;
 
 namespace PartsTrader.ClientTools.API
@@ -17,12 +20,29 @@ namespace PartsTrader.ClientTools.API
             Configuration = configuration;
         }
 
+        readonly string DefaultOrigins = "_defaultOrigins";
+
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy(DefaultOrigins,
+                builder =>
+                {
+                    builder
+                    .WithOrigins("http://localhost:3000", "http://localhost:3001", "localhost:3000")
+                    .AllowAnyHeader()
+                    .AllowAnyMethod(); ;
+                });
+            });
+
+            //services.AddAutoMapper();
+
             services.AddTransient<IPartsValidator, PartsValidator>();
+            services.AddTransient<IPartsService, PartsService>();
             services.AddTransient<IPartsRepository, PartsRepository>();
 
             services.AddMvc()
@@ -60,6 +80,12 @@ namespace PartsTrader.ClientTools.API
                 app.UseHsts();
             }
 
+             AutoMapper.Mapper.Initialize(cfg =>
+             {
+                 cfg.CreateMap<PartSummary, PartSummaryDTO>();
+                 cfg.CreateMap<PartDetails, PartDetailsDTO>();
+             });
+
             app.UseHttpsRedirection();
 
             app.UseSwagger();
@@ -70,6 +96,8 @@ namespace PartsTrader.ClientTools.API
                         "ClientTools API");
                     setupAction.RoutePrefix = "";
                 });
+
+            app.UseCors(DefaultOrigins);
 
             app.UseMvc();
         }

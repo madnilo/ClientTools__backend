@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using PartsTrader.ClientTools.API.Model;
+using PartsTrader.ClientTools.API.Model.DTO;
 
 namespace PartsTrader.ClientTools.API.Service
 {
     public interface IPartsService
     {
-        List<PartSummaryDTO> GetPartsByPartNo(string partNo);
-        PartDetailsDTO GetPartDetailsByPartNo(string partNo);
-
-
+        Task<List<PartSummaryDTO>> GetCompatiblePartsByPartNo(string partNo);
+        Task<PartDetailsDTO> GetPartDetailsByPartNo(string partNo);
     }
 }
