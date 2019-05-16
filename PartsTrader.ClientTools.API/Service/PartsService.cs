@@ -12,17 +12,20 @@ namespace PartsTrader.ClientTools.API
     public class PartsService : IPartsService
     {
         private readonly IPartsRepository _repo;
+        private readonly IMapper _mapper;
 
-        public PartsService(IPartsRepository repo)
+        public PartsService(IPartsRepository repo,
+            IMapper mapper)
         {
             _repo = repo;
+            _mapper = mapper;
         }
 
 
         public async Task<PartDetailsDTO> GetPartDetailsByPartNo(string partNo)
         {
             var details = await _repo.GetPartDetailsByPartNo(partNo);
-            var result = Mapper.Map<PartDetailsDTO>(details);
+            var result = _mapper.Map<PartDetailsDTO>(details);
             return result;
         }
 
@@ -36,7 +39,7 @@ namespace PartsTrader.ClientTools.API
                 return new List<PartSummaryDTO>();
             }
 
-            return Mapper.Map<List<PartSummaryDTO>>(await _repo.GetCompatiblePartsByPartNo(partNo));
+            return _mapper.Map<List<PartSummaryDTO>>(await _repo.GetCompatiblePartsByPartNo(partNo));
         }
 
     }

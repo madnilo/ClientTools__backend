@@ -1,4 +1,5 @@
 ﻿
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -39,7 +40,7 @@ namespace PartsTrader.ClientTools.API
                 });
             });
 
-            //services.AddAutoMapper();
+            services.AddAutoMapper(typeof(PartsProfile).Assembly);
 
             services.AddTransient<IPartsValidator, PartsValidator>();
             services.AddTransient<IPartsService, PartsService>();
@@ -79,12 +80,6 @@ namespace PartsTrader.ClientTools.API
                 });
                 app.UseHsts();
             }
-
-             AutoMapper.Mapper.Initialize(cfg =>
-             {
-                 cfg.CreateMap<PartSummary, PartSummaryDTO>();
-                 cfg.CreateMap<PartDetails, PartDetailsDTO>();
-             });
 
             app.UseHttpsRedirection();
 
