@@ -1,63 +1,62 @@
-﻿//using System.Collections.Generic;
-//using System.Threading.Tasks;
-//using AutoMapper;
-//using Microsoft.VisualStudio.TestTools.UnitTesting;
-//using Moq;
-//using PartsTrader.ClientTools.API;
-//using PartsTrader.ClientTools.API.Domain;
-//using PartsTrader.ClientTools.API.Model.DTO;
-//using PartsTrader.ClientTools.API.Repository;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using AutoMapper;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
+using PartsTrader.ClientTools.API;
+using PartsTrader.ClientTools.API.Domain;
+using PartsTrader.ClientTools.API.Model.DTO;
+using PartsTrader.ClientTools.API.Repository;
 
-//namespace PartsTrader.ClientTools.MSTest
-//{
-//    [TestClass]
-//    public class PartsServiceTest
-//    {
+namespace PartsTrader.ClientTools.MSTest
+{
+    [TestClass]
+    public class PartsServiceTest
+    {
+        [TestMethod]
+        public async Task GetPartDetailsByPartNoTests()
+        {
+            var details = new PartDetails() { PartNumber = "1111-ASDF" };
+            var detailsDTO  = new PartDetailsDTO() { PartNumber = "1111-ASDF" };
 
-//        [TestMethod]
-//        public async Task GetPartDetailsByPartNoTests()
-//        {
-//            var partNo = "1111-apsodi";
-//            var mockRepository = new Mock<IPartsRepository>();
-//            var _subject = new PartsService(mockRepository.Object);
+            var mockRepository = new Mock<IPartsRepository>();
+            var mockMapper = new Mock<IMapper>();
 
-//            mockRepository.Setup(x => x.GetPartDetailsByPartNo(partNo))
-//                .Returns(Task.Run(() => new PartDetails(){ Title = "Bla" }));
+            mockRepository.Setup(x => x.GetPartDetailsByPartNo(It.IsAny<string>()))
+                .ReturnsAsync(details);
+            mockMapper.Setup(x => x.Map<PartDetailsDTO>(It.IsAny<PartDetails>()))
+                .Returns(detailsDTO);
 
-//            var result = await _subject.GetPartDetailsByPartNo(partNo);
+            var _subject = new PartsService(mockRepository.Object, mockMapper.Object);
+            var result = await _subject.GetPartDetailsByPartNo(details.PartNumber);
 
-//            Assert.IsNotNull(result);
-//        }
+            Assert.IsNotNull(result);
+        }
 
-//        [TestMethod]
-//        public async Task GetCompatiblePartsByPartNoTests()
-//        {
-//            var partNo = "1111-apsodi";
-//            var mockRepository = new Mock<IPartsRepository>();
-//            var _subject = new PartsService(mockRepository.Object);
+        [TestMethod]
+        public async Task GetCompatiblePartsByPartNoTests()
+        {
+            var exclusions = new List<PartSummary>(){ new PartSummary() { PartNo = "0987-kajsh" }};
+            var summary = new List<PartSummary>(){ new PartSummary() { PartNo = "1234-QWOUE" }};
+            var summaryDTO = new List<PartSummaryDTO>(){ new PartSummaryDTO() { PartNo = "1234-QWOUE" }};
 
+            var mockRepository = new Mock<IPartsRepository>();
+            var mockMapper = new Mock<IMapper>();
 
-//            mockRepository.Setup(x => x.GetCompatiblePartsByPartNo(partNo))
-//                .Returns(Task.Run(() => new List<PartSummary>(){
-//                    new PartSummary(){
-//                        Title = "Bla"
-//                    }
-//                }));
+            mockRepository.Setup(x => x.GetExcludedParts())
+                .ReturnsAsync(exclusions);
+            mockRepository.Setup(x => x.GetCompatiblePartsByPartNo(It.IsAny<string>()))
+                .ReturnsAsync(summary);
+            mockMapper.Setup(x => x.Map<List<PartSummaryDTO>>(It.IsAny<List<PartSummary>>()))
+                .Returns(summaryDTO);
 
-//            mockRepository.Setup(x => x.GetExcludedParts())
-//                .Returns(Task.Run(() => new List<PartSummary>()));
+            var _subject = new PartsService(mockRepository.Object, mockMapper.Object);
+            var result = await _subject.GetCompatiblePartsByPartNo("1234-pqowie");
 
-//            var mockMapper = new Mock<IMapper>();
-//            mockMapper.Setup(x => x.Map<PartSummary, PartSummaryDTO>(It.IsAny<PartSummary>()))
-//                .Returns( new PartSummaryDTO() { Title = "Bla" }); 
-
-//            var result = await _subject.GetCompatiblePartsByPartNo(partNo);
-
-//            Assert.IsNotNull(result);
-//        }
-
-
-//    }
-//}
+            Assert.IsNotNull(result);
+        }
+    }
+}
 
 
