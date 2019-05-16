@@ -1,4 +1,4 @@
-﻿# ClientTool__backend
+﻿# ClientTools__backend
 
 This project consists of the server side API for the ClientTools application. To run the solution, make sure you have .NET Core SDK 2.1 or higher. 
 
@@ -17,6 +17,7 @@ The test suite can be run with the command:
 ### The solution
 
 This application serves the ClientTools frontend webapp. The clients can utilize ClientTools' simple UI to lookup for parts in the central catalogue. The catalogue service was mocked for testing purposes.
+![](architecture.png)
 
 #### Logging
 
