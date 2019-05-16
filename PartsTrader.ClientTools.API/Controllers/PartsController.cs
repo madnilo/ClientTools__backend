@@ -16,7 +16,7 @@ namespace PartsTrader.ClientTools.API.Controllers
     [ApiController]
     public class PartsController : ControllerBase
     {
-         private readonly ILogger<PartsController> _logger;
+        private readonly ILogger<PartsController> _logger;
         private readonly IPartsValidator _validator;
         private readonly IPartsService _service;
 
@@ -24,7 +24,7 @@ namespace PartsTrader.ClientTools.API.Controllers
         IPartsValidator validator,
         IPartsService service)
         {
-             _logger = logger;
+            _logger = logger;
             _validator = validator;
             _service = service;
         }
@@ -47,7 +47,7 @@ namespace PartsTrader.ClientTools.API.Controllers
             }
             catch (InvalidPartException ex)
             {
-                 _logger.LogError(ex.Message);
+                _logger.LogError(ex.Message);
                 return BadRequest(Messages.PARTS__INVALID_NUMBER);
             }
 
@@ -73,7 +73,7 @@ namespace PartsTrader.ClientTools.API.Controllers
             }
             catch (InvalidPartException ex)
             {
-                 _logger.LogError(ex.Message);
+                _logger.LogError(ex.Message);
                 return BadRequest(Messages.PARTS__INVALID_NUMBER);
             }
 
